@@ -1,24 +1,44 @@
 from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
+
 import getpass
+
 
 pantalla = Tk()
 #Interfaz gráfica para el usuario
 pantalla.title("P R O Y E C T O:  M A R S")
 pantalla.geometry("600x500")
-titA = StringVar()
-desA = StringVar()
-
-
-#ETIQUETAS PARA LOS CUADROS DE TEXTOS
-lbtitulo1 =      Label(pantalla, text="Usuario").place(x=5, y=20)
-lbtitulo2 =      Label(pantalla, text="<<Nombre>>").place(x=50, y=20)
-
-lbtitulo3 =      Label(pantalla, text="MÁQUINA ACTUAL: ").place(x=100, y=100)
-lbtitulo4 =      Label(pantalla, text="<<# maquina>>").place(x=220, y=100)
-lbtitulo3 =      Label(pantalla, text="MIS REPORTES: ").place(x=100, y=150)
-
-#BOTÓN QUE LLAMARÁ A LA FUNCIÓN
-btnguardar =    Button(pantalla, text="NUEVO REPORTE", bg="Blue",fg="White", width=20).place(x=100, y=400)
+#-------------------Lista Desplegable-------------
+a=1
+i=[]
+while(a<=21):
+    aux = "Lab: "+str(a)
+    i.append(aux)
+    a=a+1
+combo = ttk.Combobox(pantalla, value=i, state='readonly')
+combo.place(x=200, y=50)
+#------------------------------------------------
+b=1
+j=[]
+while(b<=50):
+    aux2 = "MAQ: "+str(b)
+    j.append(aux2)
+    b=b+1
+combo = ttk.Combobox(pantalla, value=j, state='readonly')
+combo.place(x=200, y=100)
+#------------------------------------------------
+text = Text(pantalla, height=15, width=60).place(x=50,y=175)
+#---------------------Etiquetas-------------------
+et1 = Label(pantalla, text= "Seleccione un laboratorio: ").place(x=50,y=50)
+et2 = Label(pantalla, text= "Seleccione una máquina: ").place(x=50,y=100)
+et3 = Label(pantalla, text= "REGISTROS:").place(x=50,y=150)
+#--------------------BOTTONES------------------------
+btn1 = Button(pantalla, text= "NUEVO").place(x=400,y=425)
+btn2 = Button(pantalla, text= "CONSULTAR").place(x=460,y=425)
 mainloop()
+
+#-----------------Funciones-----------------------------
+
+
+
